@@ -10,7 +10,9 @@ typedef struct TOKEN_STRUCT
         TOKEN_STRING,
         TOKEN_SEMI,
         TOKEN_LPAREN,
-        TOKEN_RPAREN
+        TOKEN_RPAREN,
+        TOKEN_COMA,
+        TOKEN_EDF
     } type;
 
     char *value;

@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "include/lexer.h"
 #include "include/parser.h"
+#include "include/visitor.h"
+
 int main(int agrc, char *agrv[])
 {
     lexer_T *lexer = init_lexer(
@@ -10,7 +12,8 @@ int main(int agrc, char *agrv[])
     parser_T *parser = init_parser(lexer);
     AST_T *root = parser_parse(parser);
 
-    printf("%d\n", root->type);
-    printf("%ld\n", root->compound_size);
+    visitor_T *visitor = init_visitor();
+    visitor_visit(visitor, root);
+
     return 0;
 }

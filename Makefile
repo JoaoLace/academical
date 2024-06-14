@@ -1,7 +1,7 @@
 exec = academical.out
 sources = $(wildcard src/*.c)
 objects = $(sources:.c=.o)
-flags = -g 
+flags = -g -Wall
 
 
 $(exec): $(objects)

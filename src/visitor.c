@@ -2,6 +2,13 @@
 #include <stdio.h>
 #include <string.h>
 
+static AST_T *print_new_line()
+{
+    printf("\n");
+
+    return init_ast(AST_NOOP);
+}
+
 static AST_T *builtin_function_print(visitor_T *visitor, AST_T **args, int args_size)
 {
     for (int i = 0; i < args_size; i++)
@@ -102,6 +109,10 @@ AST_T *visitor_visit_function_call(visitor_T *visitor, AST_T *node)
     if (strcmp(node->function_call_name, "print") == 0)
     {
         return builtin_function_print(visitor, node->function_call_arguments, node->function_call_arguments_size);
+    }
+    else if (strcmp(node->function_call_name, "printnl") == 0)
+    {
+        return print_new_line();
     }
     printf("ERROR: Undefined method '%s' \n", node->function_call_name);
     exit(1);

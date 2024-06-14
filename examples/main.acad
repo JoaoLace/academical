@@ -1,2 +1,8 @@
 var name = "Joao";
+var name2 = "Davi";
 print(name);
+printnl();
+print(name2);
+printnl();
+
+
